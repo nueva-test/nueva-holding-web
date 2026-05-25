@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUEVA HOLDING | ヌエヴァホールディング株式会社 | AIで英語学習・人工知能ソリューション</title>
+<meta name="description" content="ヌエヴァホールディング株式会社は、AIを活用して社会課題を解決するテクノロジー企業です。旗艦事業「AIで英語」では、人工知能による英語学習（TOEIC・ビジネス英語・留学英語・日常英語）を提供。学術論文に基づく科学的な英語習得メソッドで、あなたの英語力を最短で引き上げます。">
+<meta name="keywords" content="AI英語学習,人工知能,英語学習アプリ,TOEIC対策,ビジネス英語,留学英語,日常英語,シャドーイング,ディクテーション,英語発音,英会話AI,英語スピーキング,英語リスニング,英語読解,SRS単語帳,英語日記,AIロールプレイ,英語習得,英語力向上,ヌエヴァホールディング,NUEVA HOLDING,AIテクノロジー,社会課題解決,京都,スタートアップ">
+<meta name="author" content="ヌエヴァホールディング株式会社">
+<meta name="robots" content="index, follow">
+<meta name="language" content="ja">
+<link rel="canonical" href="https://nueva-holding.com/">
+
+<!-- OGP (Open Graph) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nueva-holding.com/">
+<meta property="og:title" content="NUEVA HOLDING | AIで英語学習・人工知能ソリューション">
+<meta property="og:description" content="AIを活用して社会課題を解決するテクノロジー企業。旗艦事業「AIで英語」では、科学的根拠に基づくAI英語学習（TOEIC・ビジネス英語・留学・日常英語）を提供します。">
+<meta property="og:site_name" content="ヌエヴァホールディング株式会社">
+<meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NUEVA HOLDING | AIで英語学習・人工知能ソリューション">
+<meta name="twitter:description" content="AIを活用して社会課題を解決するテクノロジー企業。科学的根拠に基づくAI英語学習を提供します。">
+
+<!-- 構造化データ（JSON-LD） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ヌエヴァホールディング株式会社",
+  "alternateName": "NUEVA HOLDING",
+  "url": "https://nueva-holding.com",
+  "logo": "https://nueva-holding.com/logo.png",
+  "description": "AIを活用して社会課題を解決するテクノロジー企業。人工知能による英語学習サービス「AIで英語」を運営。",
+  "foundingDate": "2026-06",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "七条通油小路東入大黒町227番地 第２キョートビル402",
+    "addressLocality": "京都市下京区",
+    "addressRegion": "京都府",
+    "postalCode": "600-8223",
+    "addressCountry": "JP"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "大久保 敦"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AIで英語",
+    "description": "AI英語学習サービス。TOEIC対策・ビジネス英語・留学英語・日常英語・シャドーイング・ディクテーション・AIロールプレイ・多読・SRS単語帳を提供。",
+    "url": "https://aideeigo.com"
+  },
+  "keywords": "AI英語学習, 人工知能, TOEIC, ビジネス英語, 留学英語, 日常英語, シャドーイング, 英会話"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2340;
+    --navy-light: #1a3a5c;
+    --green: #4a9e4e;
+    --green-light: #6ab56e;
+    --gold: #c9a84c;
+    --white: #ffffff;
+    --off-white: #f8f7f4;
+    --gray: #8a8a8a;
+    --light-gray: #e8e8e8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--off-white);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(13,35,64,0.96);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.15em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--green-light); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--green-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #0a3d2e 100%);
+    display: flex;
+    align-items: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,158,78,0.14) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: 30%;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 1s ease both;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--green-light);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 44px; height: 1px;
+    background: var(--green-light);
+    flex-shrink: 0;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5.5vw, 70px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 36px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green-light);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.62);
+    line-height: 2;
+    margin-bottom: 52px;
+    font-weight: 300;
+    max-width: 500px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--green);
+    color: var(--white);
+    padding: 17px 38px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+
+  .hero-cta:hover {
+    background: var(--green-light);
+    gap: 20px;
+  }
+
+  .hero-cta::after { content: '→'; font-size: 14px; }
+
+  .hero-stats {
+    position: absolute;
+    right: 60px;
+    bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    z-index: 1;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .stat {
+    text-align: right;
+    border-right: 2px solid var(--green);
+    padding-right: 20px;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* SECTION COMMON */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+
+  /* VISION */
+  .vision {
+    padding: 130px 60px;
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: center;
+  }
+
+  .vision h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.8vw, 50px);
+    font-weight: 300;
+    line-height: 1.35;
+    color: var(--navy);
+    margin-bottom: 36px;
+  }
+
+  .vision-text {
+    font-size: 15px;
+    color: #555;
+    line-height: 2.1;
+    font-weight: 300;
+  }
+
+  .vision-values {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .value-item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 28px 32px;
+    border: 1px solid var(--light-gray);
+    transition: all 0.35s;
+    cursor: default;
+  }
+
+  .value-item:hover {
+    border-color: var(--green);
+    transform: translateX(10px);
+    box-shadow: -4px 0 0 var(--green);
+  }
+
+  .value-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--green);
+    line-height: 1;
+    min-width: 44px;
+  }
+
+  .value-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: 0.06em;
+  }
+
+  .value-desc {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  /* BUSINESS */
+  .business {
+    padding: 130px 60px;
+    background: var(--off-white);
+  }
+
+  .business-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .business-header .section-label {
+    justify-content: center;
+  }
+
+  .business-header .section-label::before { display: none; }
+
+  .business-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.8vw, 50px);
+    font-weight: 300;
+    color: var(--navy);
+    margin-top: 8px;
+  }
+
+  .business-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .biz-card {
+    background: var(--white);
+    padding: 56px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+
+  .biz-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 0;
+    background: var(--green);
+    transition: height 0.4s;
+  }
+
+  .biz-card:hover::before { height: 100%; }
+
+  .biz-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.07);
+  }
+
+  .biz-tag {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .biz-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .biz-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  .biz-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 36px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--green);
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--green);
+    padding-bottom: 4px;
+    transition: gap 0.3s;
+  }
+
+  .biz-link:hover { gap: 18px; }
+  .biz-link::after { content: '→'; }
+
+  .biz-card.future {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 320px;
+  }
+
+  .biz-card.future::before { background: var(--green-light); }
+  .biz-card.future .biz-tag { color: var(--green-light); }
+  .biz-card.future h3 { color: var(--white); }
+  .biz-card.future p { color: rgba(255,255,255,0.45); font-size: 13px; }
+
+  /* COMPANY */
+  .company {
+    padding: 130px 60px;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 90px;
+    align-items: start;
+  }
+
+  .company .section-label {
+    color: rgba(255,255,255,0.35);
+  }
+
+  .company .section-label::before {
+    background: var(--green-light);
+  }
+
+  .company h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.8vw, 50px);
+    font-weight: 300;
+    color: var(--white);
+    margin-top: 12px;
+  }
+
+  .company-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .company-table tr {
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .company-table td {
+    padding: 22px 0;
+    font-size: 14px;
+    font-weight: 300;
+    vertical-align: top;
+    line-height: 1.8;
+  }
+
+  .company-table td:first-child {
+    color: var(--green-light);
+    width: 130px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding-top: 26px;
+    text-transform: uppercase;
+  }
+
+  .company-table td:last-child {
+    color: rgba(255,255,255,0.78);
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 130px 60px;
+    background: var(--off-white);
+    text-align: center;
+  }
+
+  .contact .section-label {
+    justify-content: center;
+  }
+
+  .contact .section-label::before { display: none; }
+
+  .contact h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.8vw, 50px);
+    font-weight: 300;
+    color: var(--navy);
+    margin-top: 8px;
+    margin-bottom: 18px;
+  }
+
+  .contact > p {
+    color: var(--gray);
+    font-size: 15px;
+    margin-bottom: 56px;
+    font-weight: 300;
+    line-height: 1.9;
+  }
+
+  .contact-form {
+    max-width: 580px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    text-align: left;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-field label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--navy);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+    padding: 16px 20px;
+    font-size: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--navy);
+    outline: none;
+    transition: border-color 0.3s;
+    resize: none;
+    appearance: none;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus {
+    border-color: var(--green);
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: #bbb;
+    font-weight: 300;
+  }
+
+  .submit-btn {
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    padding: 18px 44px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+    align-self: flex-start;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  .submit-btn:hover { background: var(--green); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 36px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 0.18em;
+    font-weight: 400;
+  }
+
+  .footer-logo span { color: var(--green-light); }
+
+  footer p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.28);
+    letter-spacing: 0.1em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 18px 28px; }
+    .nav-links { gap: 24px; }
+    .hero { padding: 100px 28px 60px; }
+    .hero-stats { display: none; }
+    .vision { grid-template-columns: 1fr; padding: 80px 28px; gap: 48px; }
+    .business { padding: 80px 28px; }
+    .business-grid { grid-template-columns: 1fr; }
+    .biz-card { padding: 36px; }
+    .company { grid-template-columns: 1fr; padding: 80px 28px; gap: 48px; }
+    .contact { padding: 80px 28px; }
+    footer { padding: 28px; flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">NUEVA <span>HOLDING</span></a>
+  <ul class="nav-links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#business">Business</a></li>
+    <li><a href="#company">Company</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Nueva Holding</div>
+    <h1>テクノロジーで、<br>社会課題を解決し、<br><em>豊かな未来を創る。</em></h1>
+    <p class="hero-sub">
+      世界中の人々の日常に、AIの力を届ける。<br>
+      ヌエヴァ（Nueva）とは、スペイン語で「新しい」。<br>
+      私たちは常に、新しい可能性を切り拓きます。
+    </p>
+    <a href="#business" class="hero-cta">事業を見る</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">2026</div>
+      <div class="stat-label">設立</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">AI</div>
+      <div class="stat-label">Core Technology</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Global</div>
+      <div class="stat-label">Vision</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="vision" id="vision">
+  <div>
+    <div class="section-label">Vision &amp; Values</div>
+    <h2>新しい技術で、<br>世界を変える。</h2>
+    <p class="vision-text">
+      社会には、まだ解決されていない課題がある。<br>
+      私たちはAIの力でそれを見つけ、形にし、届ける。<br><br>
+      大切にしているのは、スピードと誠実さ。<br>
+      アイデアを素早くプロダクトへ。<br>
+      そして、世界中の人々に使ってもらえるまで、<br>
+      磨き続ける。
+    </p>
+  </div>
+  <div class="vision-values">
+    <div class="value-item">
+      <div class="value-num">01</div>
+      <div>
+        <div class="value-title">課題発見力</div>
+        <div class="value-desc">社会のペインポイントを見つけ、AIで解決策を形にする。</div>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-num">02</div>
+      <div>
+        <div class="value-title">実行スピード</div>
+        <div class="value-desc">アイデアから製品まで、圧倒的な速さで届ける。</div>
+      </div>
+    </div>
+    <div class="value-item">
+      <div class="value-num">03</div>
+      <div>
+        <div class="value-title">グローバル視点</div>
+        <div class="value-desc">最初から世界を見据えたプロダクト設計。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS -->
+<section class="business" id="business">
+  <div class="business-header">
+    <div class="section-label">Business</div>
+    <h2>事業一覧</h2>
+  </div>
+  <div class="business-grid">
+    <div class="biz-card">
+      <div class="biz-tag">Flagship Service — AI Education</div>
+      <h3>AIで英語</h3>
+      <p>
+        英語学習の課題はシンプルだ。正しい練習法で、何度でも練習できる相手がいない。AIで英語は、その相手になる。<br><br>
+        日本人英語学習者に最も効果的な学習法を、学術論文や研究データから人工知能が徹底的に調査・分析。シャドーイング・ディクテーション・AIロールプレイ・多読・SRS単語帳——科学的根拠に基づく機能を、すべて一つのアプリに実装した。だから、英語が使えるようになる。<br><br>
+        TOEIC対策・ビジネス英語・留学英語・日常英語まで、あらゆる目標に対応。CEFRレベル診断テストから始まり、毎日の学習、スコア成長まで。AIがあなただけの最短ルートで英語力を引き上げる。
+      </p>
+      <a href="https://aideeigo.com" class="biz-link" target="_blank" rel="noopener">サービスを見る</a>
+    </div>
+    <div class="biz-card future">
+      <div class="biz-tag">Coming Soon</div>
+      <h3>Next<br>Business</h3>
+      <p>社会の課題があるところに、次の事業がある。</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company" id="company">
+  <div>
+    <div class="section-label">Company</div>
+    <h2>会社概要</h2>
+  </div>
+  <table class="company-table">
+    <tr>
+      <td>会社名</td>
+      <td>ヌエヴァホールディング株式会社</td>
+    </tr>
+    <tr>
+      <td>設立</td>
+      <td>2026年6月</td>
+    </tr>
+    <tr>
+      <td>所在地</td>
+      <td>〒600-8223<br>京都府京都市下京区七条通油小路東入大黒町227番地<br>第２キョートビル402</td>
+    </tr>
+    <tr>
+      <td>代表者</td>
+      <td>大久保 敦</td>
+    </tr>
+    <tr>
+      <td>事業内容</td>
+      <td>AIを活用したプロダクトの開発・運営</td>
+    </tr>
+  </table>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Contact</div>
+  <h2>お問い合わせ</h2>
+  <p>事業に関するご相談・取材・パートナーシップのご提案など、<br>お気軽にご連絡ください。</p>
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <div class="form-field">
+      <label>お名前</label>
+      <input type="text" name="name" placeholder="山田 太郎" required>
+    </div>
+    <div class="form-field">
+      <label>メールアドレス</label>
+      <input type="email" name="email" placeholder="example@email.com" required>
+    </div>
+    <div class="form-field">
+      <label>件名</label>
+      <input type="text" name="subject" placeholder="お問い合わせ件名" required>
+    </div>
+    <div class="form-field">
+      <label>メッセージ</label>
+      <textarea name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">送信する</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">NUEVA <span>HOLDING</span></div>
+  <p>© 2026 ヌエヴァホールディング株式会社. All Rights Reserved.</p>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('お問い合わせを受け付けました。担当者より折り返しご連絡いたします。');
+    e.target.reset();
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Nav background on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
