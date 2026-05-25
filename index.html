@@ -87,24 +87,27 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 20px 60px;
+    padding: 12px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(13,35,64,0.96);
+    background: rgba(255,255,255,0.97);
     backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--light-gray);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
   }
 
   .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--white);
-    letter-spacing: 0.15em;
     text-decoration: none;
+    display: flex;
+    align-items: center;
   }
 
-  .nav-logo span { color: var(--green-light); }
+  .nav-logo img {
+    height: 52px;
+    display: block;
+    object-fit: contain;
+  }
 
   .nav-links {
     display: flex;
@@ -113,14 +116,14 @@
   }
 
   .nav-links a {
-    color: rgba(255,255,255,0.75);
+    color: var(--navy);
     text-decoration: none;
     font-size: 13px;
     letter-spacing: 0.12em;
     transition: color 0.3s;
   }
 
-  .nav-links a:hover { color: var(--green-light); }
+  .nav-links a:hover { color: var(--green); }
 
   /* HERO */
   .hero {
@@ -613,22 +616,32 @@
   /* FOOTER */
   footer {
     background: var(--navy);
-    padding: 36px 60px;
+    padding: 0 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     border-top: 1px solid rgba(255,255,255,0.07);
+    overflow: hidden;
   }
 
   .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--white);
-    letter-spacing: 0.18em;
-    font-weight: 400;
+    background: var(--white);
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
   }
 
-  .footer-logo span { color: var(--green-light); }
+  .footer-logo img {
+    height: 44px;
+    display: block;
+    object-fit: contain;
+  }
+
+  .footer-copy {
+    display: flex;
+    align-items: center;
+    padding: 20px 48px;
+  }
 
   footer p {
     font-size: 11px;
@@ -663,8 +676,8 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="logo.png" alt="NUEVA HOLDING ヌエヴァホールディング株式会社" height="40" style="display:block;">
-  </a>
+  <img src="logo.png" alt="NUEVA HOLDING ヌエヴァホールディング株式会社">
+</a>
   <ul class="nav-links">
     <li><a href="#vision">Vision</a></li>
     <li><a href="#business">Business</a></li>
@@ -824,9 +837,11 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="logo.png" alt="NUEVA HOLDING" height="32" style="display:block;">
+    <img src="logo.png" alt="NUEVA HOLDING">
   </div>
-  <p>© 2026 ヌエヴァホールディング株式会社. All Rights Reserved.</p>
+  <div class="footer-copy">
+    <p>© 2026 ヌエヴァホールディング株式会社. All Rights Reserved.</p>
+  </div>
 </footer>
 
 <script>
@@ -852,11 +867,7 @@
   // Nav background on scroll
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-      nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
-    } else {
-      nav.style.boxShadow = 'none';
-    }
+    // scroll handled by CSS
   });
 </script>
 </body>
