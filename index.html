@@ -10,8 +10,10 @@
 <meta name="robots" content="index, follow">
 <meta name="language" content="ja">
 <link rel="canonical" href="https://nueva.co.jp/">
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/logo.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 <!-- OGP (Open Graph) -->
 <meta property="og:type" content="website">
@@ -653,6 +655,31 @@
 
   .submit-btn:hover { background: var(--green); }
 
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: var(--navy);
+  }
+
+  /* ハニーポット：完全非表示（ボットのみ入力する隠しフィールド） */
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px; height: 1px;
+    overflow: hidden;
+  }
+
+  .form-status {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-top: 4px;
+    min-height: 1.2em;
+  }
+
+  .form-status.success { color: var(--green); }
+  .form-status.error { color: #c0392b; }
+
   /* FOOTER */
   footer {
     background: var(--navy);
@@ -871,24 +898,30 @@
   <div class="section-label">Contact</div>
   <h2>お問い合わせ</h2>
   <p>事業に関するご相談・取材・パートナーシップのご提案など、<br>お気軽にご連絡ください。</p>
-  <form class="contact-form" onsubmit="handleSubmit(event)">
+  <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
     <div class="form-field">
       <label>お名前</label>
-      <input type="text" name="name" placeholder="山田 太郎" required>
+      <input type="text" name="name" placeholder="山田 太郎" maxlength="100" required>
     </div>
     <div class="form-field">
       <label>メールアドレス</label>
-      <input type="email" name="email" placeholder="example@email.com" required>
+      <input type="email" name="email" placeholder="example@email.com" maxlength="200" required>
     </div>
     <div class="form-field">
       <label>件名</label>
-      <input type="text" name="subject" placeholder="お問い合わせ件名" required>
+      <input type="text" name="subject" placeholder="お問い合わせ件名" maxlength="200" required>
     </div>
     <div class="form-field">
       <label>メッセージ</label>
-      <textarea name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+      <textarea name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" maxlength="4000" required></textarea>
+    </div>
+    <!-- ハニーポット（ボット対策・通常のユーザーには非表示） -->
+    <div class="hp-field" aria-hidden="true">
+      <label>Company (入力しないでください)</label>
+      <input type="text" name="company_hp" tabindex="-1" autocomplete="off">
     </div>
     <button type="submit" class="submit-btn">送信する</button>
+    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
   </form>
 </section>
 
@@ -898,10 +931,47 @@
 </footer>
 
 <script>
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    alert('お問い合わせを受け付けました。担当者より折り返しご連絡いたします。');
-    e.target.reset();
+    const form = e.target;
+    const btn = form.querySelector('.submit-btn');
+    const status = document.getElementById('formStatus');
+    const btnLabel = btn.textContent;
+
+    status.className = 'form-status';
+    status.textContent = '';
+    btn.disabled = true;
+    btn.textContent = '送信中…';
+
+    const payload = {
+      name: form.name.value,
+      email: form.email.value,
+      subject: form.subject.value,
+      message: form.message.value,
+      company_hp: form.company_hp.value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        status.className = 'form-status success';
+        status.textContent = 'お問い合わせを受け付けました。ご連絡ありがとうございます。';
+        form.reset();
+      } else {
+        status.className = 'form-status error';
+        status.textContent = '送信に失敗しました。お手数ですが時間をおいて再度お試しください。';
+      }
+    } catch (_) {
+      status.className = 'form-status error';
+      status.textContent = '送信に失敗しました。お手数ですが時間をおいて再度お試しください。';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = btnLabel;
+    }
   }
 
   // Smooth scroll for nav links
