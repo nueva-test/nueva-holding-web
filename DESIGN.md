@@ -29,8 +29,13 @@
 - **旧プレビュードメイン**：`nueva-holding-web.vercel.app`
 - **デプロイフロー**：`feature/…` ブランチ → `master`（通常マージ）。
   - **force push 禁止**。巻き戻しが必要な場合は `git revert` を用いる（履歴の書き換えはしない）。
-- **Bot Protection（Vercel Firewall）**：ON。
-  - 外部サービスがクロール/検証でアクセスする作業（例：Xserver の WEB 認証によるドメイン所有権確認）を行う際は、一時的に **OFF → 作業 → ON** が必要になる場合がある（→ 第10章 トラブル知見を参照）。
+- **Bot Protection（Vercel Firewall）**：**Log（モニタリング）モード**。
+  - 意味：bot アクセスを**検知・記録するが、チャレンジ画面（Security Checkpoint）でのブロックはしない**。bot も HP 本体を読める。
+  - **この方針を採る理由**：
+    - ヌエヴァHP は静的なコーポレートサイトで、守るべき高コスト API・機密データが無い（問い合わせフォームはハニーポット＋入力検証で保護済み。→ 第5章）。
+    - コーポレートサイトは検索エンジンや外部システム（例：金融機関の法人口座開設審査、各種クローラ）に正しく読まれる必要がある。Bot Protection を**ブロックモード（ON）にすると、プログラム的アクセスに Vercel「Security Checkpoint」bot 検証画面が返り、HP 内容が読めなくなる**。実際に **(a) Xserver のドメイン所有権 WEB 認証**（`webauth.html` のトークンが読めない）、**(b) 法人口座開設審査システム** の両方でこの事象が発生した（→ 第4・5章、第10章）。
+    - 対応として、**完全 OFF ではなく Log モードを採用**：外部システム / クローラは通しつつ、bot 検知の記録は残す（監視は維持）。
+  - **プロジェクト取り違え注意**：本設定は**「AIで英語」（`ai-eigo` / `ai-eigo-prod`）とは目的が異なる**。AIで英語は守るべき API・課金・データを持つため Firewall 方針が別である。**Firewall 設定の変更時はプロジェクトを取り違えないこと（ヌエヴァHP `nueva-holding-web` のみを操作し、AIで英語の Firewall には触れない）。**
 
 ---
 
@@ -62,6 +67,7 @@
 
 - **収容サーバー**：`sv8440.xserver.jp`（IP `183.181.90.121`）
 - **ドメイン所有権確認**：Xserver の WEB 認証（`/webauth.html` にトークンを配置する方式）で確認済み。
+  - ※この認証時、Bot Protection がブロックモードだと Xserver のクローラが「Security Checkpoint」bot 検証画面で弾かれ、`webauth.html` のトークンを読めず認証に失敗する事象が発生した。これが Bot Protection を Log モードへ変更した理由の一つ（→ 第2章）。
 - **メールアドレス**：`support@nueva.co.jp`（受信箱・Xserver）
 
 ### メールクライアント設定値
@@ -197,6 +203,7 @@
 | — | メール構成（Xserver・SPF/DKIM/DMARC・`support@nueva.co.jp`） |
 | — | Xserver SMTP「国外アクセス制限」の解除（Vercel Function からの送信を有効化） |
 | — | 問い合わせフォーム実装（`api/contact.js`・nodemailer・ハニーポット・入力検証） |
+| — | Bot Protection をブロックから Log モードへ変更（法人口座審査・Xserver 認証で HP／トークンが読めない事象への対応。コーポレートサイトの性質上、外部クローラ・審査システムに読まれる必要があるためブロックしない方針。ただし検知記録は維持） |
 
 > 正確な日付は Git のコミット履歴（`git log`）を参照のこと。本書では時系列の概略のみを示す。
 
@@ -211,4 +218,5 @@
 - **秘密情報（SMTP パスワード等）は本書に記載しない**（環境変数のキー名のみ記載）。
 - `master` 直接コミット / push は禁止。作業は `feature/…` ブランチで行う。
 - 本プロジェクトは ai-eigo とは別。ai-eigo には触れない。
-- Xserver WEB 認証など外部検証アクセスを伴う作業時は、Vercel Bot Protection の一時 OFF が必要になる場合がある（作業後 ON に戻す）。
+- Bot Protection は **Log モード**運用（外部クローラ・審査システムに HP を読ませるため）。過去に Xserver の WEB 認証（`webauth.html` トークン）と法人口座開設審査システムが、ブロックモード時の「Security Checkpoint」bot 検証画面で弾かれた経緯がある（→ 第2章）。Firewall を再度ブロックへ戻すと同種の事象が再発しうる点に注意。
+- **Firewall 設定変更時はプロジェクトを取り違えないこと**：ヌエヴァHP（`nueva-holding-web`）のみを操作し、AIで英語（`ai-eigo` / `ai-eigo-prod`）の Firewall には触れない。
