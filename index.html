@@ -320,6 +320,59 @@
     flex-shrink: 0;
   }
 
+  /* NEWS */
+  .news {
+    padding: 100px 60px;
+    background: var(--off-white);
+  }
+
+  .news-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .news h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.8vw, 50px);
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 40px;
+  }
+
+  .news-list {
+    list-style: none;
+  }
+
+  .news-list li {
+    display: flex;
+    gap: 28px;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .news-list time {
+    font-size: 13px;
+    color: var(--green);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .news-list a {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1.9;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .news-list a:hover {
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
+
   /* VISION */
   .vision {
     padding: 130px 60px;
@@ -733,6 +786,8 @@
     nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     .hero { padding: 100px 28px 60px; }
     .hero-stats { display: none; }
+    .news { padding: 64px 28px; }
+    .news-list li { flex-direction: column; gap: 6px; }
     .vision { grid-template-columns: 1fr; padding: 80px 28px; gap: 48px; }
     .business { padding: 80px 28px; }
     .business-grid { grid-template-columns: 1fr; }
@@ -792,6 +847,17 @@
       <div class="stat-num">Global</div>
       <div class="stat-label">Vision</div>
     </div>
+  </div>
+</section>
+
+<!-- NEWS（新着情報。項目追加は .news-list に <li> を1行コピーして書き換えるだけ） -->
+<section class="news" id="news">
+  <div class="news-inner">
+    <div class="section-label">News</div>
+    <h2>新着情報</h2>
+    <ul class="news-list">
+      <li><time datetime="2026-07-29">2026.07.29</time><a href="https://aideeigo.com" target="_blank" rel="noopener noreferrer">AI英語学習サービス「AIで英語」を正式公開しました(Web・iOS・Android対応)</a></li>
+    </ul>
   </div>
 </section>
 
